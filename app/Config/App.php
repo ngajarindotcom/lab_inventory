@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
-    public $baseURL = 'http://localhost:8088/';
+    public $baseURL = 'http://localhost:8088/lab-asset-management/public/';
     public $indexPage = '';
     public $uriProtocol = 'REQUEST_URI';
     public $defaultLocale = 'en';
