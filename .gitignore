@@ -1,0 +1,6 @@
+/vendor
+/writable
+.env
+.env.*
+phpunit.xml
+build/

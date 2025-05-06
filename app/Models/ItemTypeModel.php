@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class ItemTypeModel extends Model
+{
+    protected $table = 'item_types';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['name', 'description', 'created_at', 'updated_at'];
+    protected $useTimestamps = true;
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+
+    public function getAllItemTypes()
+    {
+        return $this->orderBy('name', 'ASC')->findAll();
+    }
+
+    public function getItemTypeById($id)
+    {
+        return $this->find($id);
+    }
+}
