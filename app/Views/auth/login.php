@@ -1,12 +1,21 @@
-<?= $this->extend('layouts/main') ?>
+<?= $this->extend('layouts/blank') ?>
 
 <?= $this->section('content') ?>
 <div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center mb-6">
+        <!-- Logo -->
+        <img src="<?= base_url('assets/images/pkcblogo.png') ?>" alt="Logo Lab Asset" style="max-width: 300px;">
+
+        <!-- Headline -->
+        <h3 class="mt-3">Aplikasi Asset Management</h3>
+        <p class="text-muted">Silakan login untuk melanjutkan</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header bg-primary text-white">
-                <h4 class="card-title text-center">Login</h4>
-            </div>
+            
             <div class="card-body">
                 <?php if (session()->getFlashdata('error')): ?>
                     <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
