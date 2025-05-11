@@ -35,7 +35,7 @@
                             <a href="<?= base_url('/categories/edit/' . $category['id']) ?>" class="btn btn-warning btn-sm">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <a href="<?= base_url('/categories/delete/' . $category['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin?')">
+                            <a href="<?= base_url('/categories/delete/' . $category['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus ini?')">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>

@@ -87,8 +87,17 @@ class ItemOutController extends BaseController
             'itemOut' => $itemOut,
             'items' => $this->itemModel->getAllItems()
         ];
+        $item = $this->itemModel->find($itemOut['item_id']);
+        $currentStock = $item['stock'];
 
-        return view('item_out/edit', $data);
+
+        return view('item_out/edit', [
+        'title' => 'Edit Barang Keluar | Lab Asset Management',
+        'itemOut' => $itemOut,
+        'items' => $this->itemModel->getAllItems(),
+        'currentStock' => $currentStock
+        ]);
+
     }
 
     public function update($id)
@@ -153,6 +162,7 @@ class ItemOutController extends BaseController
     {
         $startDate = $this->request->getGet('start_date');
         $endDate = $this->request->getGet('end_date');
+        $itemId = $this->request->getGet('item_id');
 
         if ($startDate && $endDate) {
             $itemOuts = $this->itemOutModel->getItemOutByDateRange($startDate, $endDate);
@@ -161,11 +171,14 @@ class ItemOutController extends BaseController
         }
 
         $data = [
-            'title' => 'Laporan Barang Keluar | Lab Asset Management',
-            'itemOuts' => $itemOuts,
-            'startDate' => $startDate,
-            'endDate' => $endDate
+        'title' => 'Laporan Barang Keluar | Lab Asset Management',
+        'itemOuts' => $itemOuts,
+        'startDate' => $startDate,
+        'endDate' => $endDate,
+        'items' => $this->itemModel->getAllItems(),
+        'itemId' => $itemId
         ];
+
 
         return view('item_out/report', $data);
     }

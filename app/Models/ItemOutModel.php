@@ -41,4 +41,14 @@ class ItemOutModel extends Model
             ->orderBy('item_out.date', 'DESC')
             ->findAll();
     }
+
+    public function getRecentItemOutWithItemName()
+    {
+        return $this->select('item_out.*, items.name AS item_name, items.code AS item_code')
+                    ->join('items', 'items.id = item_out.item_id')
+                    ->orderBy('item_out.created_at', 'DESC')
+                    ->limit(5)
+                    ->findAll();
+    }
+
 }

@@ -34,11 +34,11 @@
                         <td><?= $itemType['description'] ?? '-' ?></td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <a href="<?= base_url('/item-types/edit/' . $itemType['id']) ?>" class="btn btn-warning btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
+                                <a href="<?= base_url('/item-types/edit/' . $itemType['id']) ?>" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="<?= base_url('/item-types/delete/' . $itemType['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus tipe barang ini?')">
-                                    <i class="fas fa-trash"></i>
+                                <a href="<?= base_url('/item-types/delete/' . $itemType['id']) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus ini?')">
+                                <i class="bi bi-trash"></i>
                                 </a>
                             </div>
                         </td>

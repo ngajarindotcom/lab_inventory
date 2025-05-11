@@ -111,14 +111,16 @@
                 <div class="card-body">
                     <div class="list-group">
                         <?php foreach ($recentItemIn as $itemIn): ?>
-                        <div class="list-group-item">
+                        <a href="<?= base_url('/items/detail/' . $item['id']) ?>" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
-                                <h6 class="mb-1"><?= $itemIn['item_name'] ?></h6>
+                                <h6 class="mb-1">
+                                    <?= isset($itemIn['item_name']) ? $itemIn['item_name'] : 'Nama tidak tersedia' ?>
+                                </h6>
                                 <small><?= date('d M Y', strtotime($itemIn['date'])) ?></small>
                             </div>
                             <p class="mb-1">Kode: <?= $itemIn['item_code'] ?></p>
                             <small>Qty: <?= $itemIn['quantity'] ?></small>
-                        </div>
+                        </a>
                         <?php endforeach; ?>
                     </div>
                 </div>
@@ -134,14 +136,14 @@
                 <div class="card-body">
                     <div class="list-group">
                         <?php foreach ($recentItemOut as $itemOut): ?>
-                        <div class="list-group-item">
+                        <a href="<?= base_url('/items/detail/' . $item['id']) ?>" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h6 class="mb-1"><?= $itemOut['item_name'] ?></h6>
                                 <small><?= date('d M Y', strtotime($itemOut['date'])) ?></small>
                             </div>
                             <p class="mb-1">Kode: <?= $itemOut['item_code'] ?></p>
                             <small>Qty: <?= $itemOut['quantity'] ?></small>
-                        </div>
+                        </a>
                         <?php endforeach; ?>
                     </div>
                 </div>

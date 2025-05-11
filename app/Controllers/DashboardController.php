@@ -31,8 +31,8 @@ class DashboardController extends BaseController
             'totalItemOut' => $this->itemOutModel->countAll(),
             'totalStockOpname' => $this->stockOpnameModel->countAll(),
             'recentItems' => $this->itemModel->orderBy('created_at', 'DESC')->limit(5)->findAll(),
-            'recentItemIn' => $this->itemInModel->orderBy('created_at', 'DESC')->limit(5)->findAll(),
-            'recentItemOut' => $this->itemOutModel->orderBy('created_at', 'DESC')->limit(5)->findAll(),
+            'recentItemIn' => $this->itemInModel->getRecentItemInWithItemName(),
+            'recentItemOut' => $this->itemOutModel->getRecentItemOutWithItemName(),
         ];
 
         return view('dashboard/index', $data);

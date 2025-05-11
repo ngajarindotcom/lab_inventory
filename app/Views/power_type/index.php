@@ -35,10 +35,10 @@
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a href="<?= base_url('/power-types/edit/' . $powerType['id']) ?>" class="btn btn-warning btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
+                                    <i class="bi bi-pencil"></i>
                                 </a>
                                 <a href="<?= base_url('/power-types/delete/' . $powerType['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus jenis daya ini?')">
-                                    <i class="fas fa-trash"></i>
+                                    <i class="bi bi-trash"></i>
                                 </a>
                             </div>
                         </td>

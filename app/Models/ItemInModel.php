@@ -41,4 +41,14 @@ class ItemInModel extends Model
             ->orderBy('item_in.date', 'DESC')
             ->findAll();
     }
+
+    public function getRecentItemInWithItemName()
+    {
+        return $this->select('item_in.*, items.name AS item_name, items.code AS item_code')
+                ->join('items', 'items.id = item_in.item_id')
+                ->orderBy('item_in.created_at', 'DESC')
+                ->limit(5)
+                ->findAll();
+    }
+
 }

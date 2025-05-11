@@ -50,7 +50,7 @@ class ItemModel extends Model
 
     public function getAllItems()
     {
-        return $this->select('items.*, categories.name as category_name, item_types.name as item_type_name, units.name as unit_name')
+        return $this->select('items.id, items.code, items.name, items.stock, categories.name as category_name, item_types.name as item_type_name, units.name as unit_name')
             ->join('categories', 'categories.id = items.category_id')
             ->join('item_types', 'item_types.id = items.item_type_id')
             ->join('units', 'units.id = items.unit_id')
@@ -58,10 +58,11 @@ class ItemModel extends Model
             ->findAll();
     }
 
+
     public function getItemById($id)
     {
         return $this->select('items.*, categories.name as category_name, item_types.name as item_type_name, 
-                            power_types.name as power_type_name, item_kinds.name as item_kind_name, units.name as unit_name')
+                            power_types.name as power_type_name, item_kinds.name as item_kind_name, units.name as unit_name, units.symbol')
             ->join('categories', 'categories.id = items.category_id', 'left')
             ->join('item_types', 'item_types.id = items.item_type_id', 'left')
             ->join('power_types', 'power_types.id = items.power_type_id', 'left')

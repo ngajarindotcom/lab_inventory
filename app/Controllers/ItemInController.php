@@ -130,6 +130,7 @@ class ItemInController extends BaseController
     {
         $startDate = $this->request->getGet('start_date');
         $endDate = $this->request->getGet('end_date');
+        $itemId = $this->request->getGet('item_id');
 
         if ($startDate && $endDate) {
             $itemIns = $this->itemInModel->getItemInByDateRange($startDate, $endDate);
@@ -137,9 +138,14 @@ class ItemInController extends BaseController
             $itemIns = $this->itemInModel->getAllItemIn();
         }
 
+        $items = $this->itemModel->getAllItems();
+        
+
         $data = [
             'title' => 'Laporan Barang Masuk | Lab Asset Management',
             'itemIns' => $itemIns,
+            'items' => $items,
+            'itemId' => $itemId,
             'startDate' => $startDate,
             'endDate' => $endDate
         ];

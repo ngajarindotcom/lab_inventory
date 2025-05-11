@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                             <th>Satuan</th>
-                            <td><?= $item['unit_name'] ?> (<?= $item['unit_symbol'] ?>)</td>
+                            <td><?= $item['unit_name'] ?> (<?= $item['symbol'] ?>)</td>
                         </tr>
                         <tr>
                             <th>Spesifikasi</th>

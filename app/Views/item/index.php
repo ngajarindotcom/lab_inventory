@@ -47,13 +47,13 @@
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a href="<?= base_url('/items/detail/' . $item['id']) ?>" class="btn btn-info btn-sm" title="Detail">
-                                    <i class="fas fa-eye"></i>
+                                    <i class="bi bi-eye"></i>
                                 </a>
                                 <a href="<?= base_url('/items/edit/' . $item['id']) ?>" class="btn btn-warning btn-sm" title="Edit">
-                                    <i class="fas fa-edit"></i>
+                                <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="<?= base_url('/items/delete/' . $item['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">
-                                    <i class="fas fa-trash"></i>
+                                <a href="<?= base_url('/items/delete/' . $item['id']) ?>" class="btn btn-danger btn-sm" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus ini?')">
+                                <i class="bi bi-trash"></i>
                                 </a>
                             </div>
                         </td>

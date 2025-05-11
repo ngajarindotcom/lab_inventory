@@ -34,10 +34,14 @@
                         <select class="form-select" id="category_id" name="category_id" required>
                             <option value="">Pilih Kategori</option>
                             <?php foreach ($categories as $category): ?>
-                                <option value="<?= $category['id'] ?>" <?= (old('category_id', $item['category_id']) == $category['id'] ? 'selected' : '' ?>>
+                                <?php 
+                                    $selected = old('category_id', $item['category_id']) == $category['id'] ? 'selected' : '';
+                                ?>
+                                <option value="<?= $category['id'] ?>" <?= $selected ?>>
                                     <?= $category['name'] ?>
                                 </option>
                             <?php endforeach; ?>
+
                         </select>
                     </div>
 
@@ -46,7 +50,7 @@
                         <select class="form-select" id="item_type_id" name="item_type_id" required>
                             <option value="">Pilih Tipe Barang</option>
                             <?php foreach ($itemTypes as $itemType): ?>
-                                <option value="<?= $itemType['id'] ?>" <?= (old('item_type_id', $item['item_type_id']) == $itemType['id'] ? 'selected' : '' ?>>
+                                <option value="<?= $itemType['id'] ?>" <?= old('item_type_id', $item['item_type_id']) == $itemType['id'] ? 'selected' : '' ?>>
                                     <?= $itemType['name'] ?>
                                 </option>
                             <?php endforeach; ?>
@@ -60,10 +64,14 @@
                         <select class="form-select" id="power_type_id" name="power_type_id">
                             <option value="">Pilih Jenis Daya</option>
                             <?php foreach ($powerTypes as $powerType): ?>
-                                <option value="<?= $powerType['id'] ?>" <?= (old('power_type_id', $item['power_type_id']) == $powerType['id'] ? 'selected' : '' ?>>
+                                <?php 
+                                    $selected = old('power_type_id', $item['power_type_id']) == $powerType['id'] ? 'selected' : '';
+                                ?>
+                                <option value="<?= $powerType['id'] ?>" <?= $selected ?>>
                                     <?= $powerType['name'] ?>
                                 </option>
                             <?php endforeach; ?>
+
                         </select>
                     </div>
 

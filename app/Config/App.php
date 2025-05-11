@@ -6,7 +6,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class App extends BaseConfig
 {
-    public $baseURL = 'http://localhost:8088/lab-asset-management/public/';
+    public $baseURL = 'http://localhost:8080/lab-asset-management/';
     public $indexPage = '';
     public $uriProtocol = 'REQUEST_URI';
     public $defaultLocale = 'en';
@@ -28,7 +28,7 @@ class App extends BaseConfig
     public $cookieSecure = false;
     public $cookieHTTPOnly = true;
     public $cookieSameSite = 'Lax';
-    public $proxyIPs = '';
+    public array|string $proxyIPs = [];
     public $CSRFTokenName = 'csrf_test_name';
     public $CSRFHeaderName = 'X-CSRF-TOKEN';
     public $CSRFCookieName = 'csrf_cookie_name';
@@ -36,4 +36,15 @@ class App extends BaseConfig
     public $CSRFRegenerate = true;
     public $CSRFRedirect = true;
     public $CSPEnabled = false;
+
+    /**
+     * --------------------------------------------------------------------------
+     * Allowed Hostnames in Site URL
+     * --------------------------------------------------------------------------
+     * If you want to restrict site URLs to specific hostnames,
+     * you can list them here. If empty, all hostnames are allowed.
+     *
+     * @var string[]
+     */
+    public array $allowedHostnames = [];
 }
