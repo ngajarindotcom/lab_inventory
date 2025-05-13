@@ -58,6 +58,42 @@ class ItemModel extends Model
             ->findAll();
     }
 
+    public function getFilteredItems($keyword = null, $filters = [])
+{
+    $builder = $this->db->table('items');
+    $builder->select('items.*, categories.name as category_name, units.name as unit_name');
+    $builder->join('categories', 'categories.id = items.category_id', 'left');
+    $builder->join('units', 'units.id = items.unit_id', 'left');
+
+    // Filter berdasarkan keyword (jika ada)
+    if ($keyword) {
+        $builder->groupStart()
+                ->like('items.name', $keyword)
+                ->orLike('items.code', $keyword)
+                ->groupEnd();
+    }
+
+    // Filter tambahan (jika ada)
+    if (!empty($filters['category_id'])) {
+        $builder->where('items.category_id', $filters['category_id']);
+    }
+
+    if (!empty($filters['item_type_id'])) {
+        $builder->where('items.item_type_id', $filters['item_type_id']);
+    }
+
+    if (!empty($filters['power_type_id'])) {
+        $builder->where('items.power_type_id', $filters['power_type_id']);
+    }
+
+    if (!empty($filters['item_kind_id'])) {
+        $builder->where('items.item_kind_id', $filters['item_kind_id']);
+    }
+
+    return $builder->get()->getResultArray();
+}
+
+
 
     public function getItemById($id)
     {

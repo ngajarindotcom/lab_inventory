@@ -18,6 +18,56 @@
             </div>
         <?php endif; ?>
 
+        <form method="GET" action="<?= base_url('/items') ?>" class="row g-3 mb-4">
+    <div class="col-md-3">
+        <input type="text" name="keyword" class="form-control" placeholder="Cari nama, kode, atau spesifikasi" value="<?= esc($_GET['keyword'] ?? '') ?>">
+    </div>
+    <div class="col-md-2">
+        <select name="category_id" class="form-select">
+            <option value="">Semua Kategori</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?= $cat['id'] ?>" <?= isset($_GET['category_id']) && $_GET['category_id'] == $cat['id'] ? 'selected' : '' ?>>
+                    <?= esc($cat['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select name="item_type_id" class="form-select">
+            <option value="">Semua Tipe</option>
+            <?php foreach ($itemTypes as $type): ?>
+                <option value="<?= $type['id'] ?>" <?= isset($_GET['item_type_id']) && $_GET['item_type_id'] == $type['id'] ? 'selected' : '' ?>>
+                    <?= esc($type['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select name="power_type_id" class="form-select">
+            <option value="">Semua Jenis Daya</option>
+            <?php foreach ($powerTypes as $power): ?>
+                <option value="<?= $power['id'] ?>" <?= isset($_GET['power_type_id']) && $_GET['power_type_id'] == $power['id'] ? 'selected' : '' ?>>
+                    <?= esc($power['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select name="item_kind_id" class="form-select">
+            <option value="">Semua Jenis Barang</option>
+            <?php foreach ($itemKinds as $kind): ?>
+                <option value="<?= $kind['id'] ?>" <?= isset($_GET['item_kind_id']) && $_GET['item_kind_id'] == $kind['id'] ? 'selected' : '' ?>>
+                    <?= esc($kind['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-md-1">
+        <button type="submit" class="btn btn-primary w-100">Cari</button>
+    </div>
+</form>
+
+
         <div class="table-responsive">
             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead class="table-primary">

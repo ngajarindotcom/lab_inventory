@@ -31,14 +31,29 @@ class ItemController extends BaseController
     }
 
     public function index()
-    {
-        $data = [
-            'title' => 'Data Barang | Lab Asset Management',
-            'items' => $this->itemModel->getAllItems()
-        ];
+{
+    $keyword = $this->request->getGet('keyword');
+    $filters = [
+        'category_id'    => $this->request->getGet('category_id'),
+        'item_type_id'   => $this->request->getGet('item_type_id'),
+        'power_type_id'  => $this->request->getGet('power_type_id'),
+        'item_kind_id'   => $this->request->getGet('item_kind_id'),
+    ];
 
-        return view('item/index', $data);
-    }
+    $items = $this->itemModel->getFilteredItems($keyword, $filters);
+
+    $data = [
+        'title'       => 'Data Barang | Lab Asset Management',
+        'items'       => $items,
+        'categories'  => $this->categoryModel->findAll(),
+        'itemTypes'   => $this->itemTypeModel->findAll(),
+        'powerTypes'  => $this->powerTypeModel->findAll(),
+        'itemKinds'   => $this->itemKindModel->findAll(),
+    ];
+
+    return view('item/index', $data);
+}
+
 
     public function create()
     {
